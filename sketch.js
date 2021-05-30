@@ -71,7 +71,7 @@ function draw() {
   stoneObj.display();
   groundObject.display();
   // display launcher object here
-    launcherObject = new launcherObject(stoneObj.body,{x:235,y:420})
+    launcherObject = new Launcher(stoneObj.body,{x:235,y:420})
 launcherObject.display();
 
   detectollision(stoneObj,mango1);
@@ -91,9 +91,6 @@ launcherObject.display();
 //create mouseDragged function here
 
 
-//create mouseReleased function here
-
-
 //create keyPressed function here
 
 
@@ -109,3 +106,17 @@ launcherObject.display();
     }
 
   }
+
+
+  function mouseDragged(){
+    Matter.Body.setPosition(stoneObj.body,{x:mouseX , y:mouseY});
+  }
+  
+  //create mouseReleased function here
+  function mouseReleased(){
+    launcherObject.fly()
+  }
+
+
+
+

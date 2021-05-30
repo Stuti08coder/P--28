@@ -16,6 +16,11 @@ class stone
 		World.add(world, this.body);
 
 	}
+
+
+
+
+
 	display()
 	{
 			var stonepos=this.body.position;		
