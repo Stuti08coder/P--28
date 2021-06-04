@@ -14,10 +14,8 @@ class mango{
 		World.add(world, this.body);
 	}
 
-
-
-
-	display(){
+	display()
+	{
 		var mangoPos=this.body.position;	
 		push()
 		translate(mangoPos.x, mangoPos.y);
