@@ -40,10 +40,8 @@ function setup() {
 
 	treeObj=new tree(1050,580);
 	groundObject=new ground(width/2,600,width,20);
-  
   //create launcherObject here
-  launcherObject = new launcherObject(stoneObj.body,{x:235,y:420})
- 
+  launcherObject = new Launcher(stoneObj.body,{x:235,y:420})
 
 	Engine.run(engine);
 }
@@ -73,7 +71,8 @@ function draw() {
   stoneObj.display();
   groundObject.display();
   // display launcher object here
-  launcherObject.display();
+    
+launcherObject.display();
 
   detectollision(stoneObj,mango1);
   detectollision(stoneObj,mango2);
@@ -88,12 +87,22 @@ function draw() {
   detectollision(stoneObj,mango11);
   detectollision(stoneObj,mango12);
 }
-
-//create mouseDragged function here
-
+function mouseDragged(){
+  Matter.Body.setPosition(stoneObj.body,{x:mouseX ,y:mouseY});
+}
 
 //create mouseReleased function here
+function mouseReleased(){
+  launcherObject.fly()
+}
 
+function keyPressed(){
+  if(keyCode === 32){
+  
+  slingshot.reload(stone.body);
+  
+  }    
+  }
 
 //create keyPressed function here
 
@@ -110,3 +119,9 @@ function draw() {
     }
 
   }
+
+
+  
+
+
+
